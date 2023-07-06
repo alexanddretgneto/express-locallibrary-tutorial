@@ -24,16 +24,31 @@ app.use(limiter);
 
 // Set up mongoose connection
 const mongoose = require("mongoose");
-mongoose.set("strictQuery", false);
+mongoose.connect(
+  "mongodb+srv://myAtlasDBUser:secreta123@myatlasclusteredu.yitubko.mongodb.net/api-mongoDB?retryWrites=true&w=majority",
+  {}
+)
+.then(() => {
+  console.log('Autenticado com o MongoDB alex Atlas');
+})
+.catch((error) => {
+  console.log('Falha ao autenticar');
+  console.log(error);
+});
 
-const dev_db_url =
-  "mongodb+srv://cooluser:coolpassword@cluster0.lz91hw2.mongodb.net/local_library?retryWrites=true&w=majority";
-const mongoDB = process.env.MONGODB_URI || dev_db_url;
+mongoose.Promise = global.Promise;
+module.exports = mongoose;
 
-main().catch((err) => console.log(err));
-async function main() {
-  await mongoose.connect(mongoDB);
-}
+// mongoose.set("strictQuery", false);
+
+// const dev_db_url =
+//   "mongodb+srv://cooluser:coolpassword@cluster0.lz91hw2.mongodb.net/local_library?retryWrites=true&w=majority";
+// const mongoDB = process.env.MONGODB_URI || dev_db_url;
+
+// main().catch((err) => console.log(err));
+// async function main() {
+//   await mongoose.connect(mongoDB);
+// }
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
