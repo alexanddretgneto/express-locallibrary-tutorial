@@ -1,4 +1,4 @@
-const mongoose = require("../database");
+const mongoose = require("../database/index");
 
 
 
@@ -33,6 +33,6 @@ const usuarioSchema = new Schema({
   }
 });
 
-const User = mongoose.model('Usuario', usuarioSchema);
 
-module.exports = User;
+
+module.exports = mongoose.model('Usuario', usuarioSchema);

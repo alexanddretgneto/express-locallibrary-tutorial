@@ -7,6 +7,7 @@ const logger = require("morgan");
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
 const catalogRouter = require("./routes/catalog"); // Import routes for "catalog" area of site
+const cad_user = require("./routes/cad_user");
 
 const compression = require("compression");
 const helmet = require("helmet");
@@ -24,12 +25,13 @@ app.use(limiter);
 
 // Set up mongoose connection
 const mongoose = require("mongoose");
+
 mongoose.connect(
   "mongodb+srv://myAtlasDBUser:secreta123@myatlasclusteredu.yitubko.mongodb.net/api-mongoDB?retryWrites=true&w=majority",
   {}
 )
 .then(() => {
-  console.log('Autenticado com o MongoDB alex Atlas');
+  console.log('Autenticado com o MongoDB');
 })
 .catch((error) => {
   console.log('Falha ao autenticar');
@@ -38,6 +40,7 @@ mongoose.connect(
 
 mongoose.Promise = global.Promise;
 module.exports = mongoose;
+
 
 // mongoose.set("strictQuery", false);
 
@@ -72,6 +75,9 @@ app.use(compression()); // Compress all routes
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
+
+app.use("/r", cad_user);
+
 app.use("/users", usersRouter);
 app.use("/catalog", catalogRouter); // Add catalog routes to middleware chain.
 
