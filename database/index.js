@@ -5,12 +5,19 @@ mongoose.connect(
   {}
 )
 .then(() => {
-  console.log('Autenticado com o MongoDB');
+  console.log('Autenticado com o MongoDB PELA PASTA DATABASE');
 })
 .catch((error) => {
-  console.log('Falha ao autenticar');
+  console.log('Falha ao autenticar na pasta database');
   console.log(error);
 });
+
+
+// ProviderDBouColection.create({
+//   "firtName":"Couveflor",
+//   "Company":{"CompanyaName":"Plugin","Endereço":"Amazonas",},
+//   "Sexo":"2x Ao dia"
+// })
 
 mongoose.Promise = global.Promise;
 module.exports = mongoose;
