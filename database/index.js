@@ -5,12 +5,14 @@ mongoose.connect(
   {}
 )
 .then(() => {
-  console.log('Autenticado com o MongoDB PELA PASTA DATABASE');
+  console.log('Autenticado com o MongoDB PELA PASTA DATABASE no index.js');
 })
 .catch((error) => {
   console.log('Falha ao autenticar na pasta database');
   console.log(error);
 });
+
+
 
 
 // ProviderDBouColection.create({

@@ -28,8 +28,6 @@ const usuarioSchema = new Schema({
   createAd:{
     type:Date,
     default:Date.now
- 
- 
   }
 });
 

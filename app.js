@@ -8,7 +8,7 @@ const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
 const catalogRouter = require("./routes/catalog"); // Import routes for "catalog" area of site
 const cad_user = require("./routes/cad_user");
-
+const mongoDB = require("./database/index")
 const compression = require("compression");
 const helmet = require("helmet");
 
@@ -16,6 +16,7 @@ const app = express();
 
 // Set up rate limiter: maximum of twenty requests per minute
 const RateLimit = require("express-rate-limit");
+
 const limiter = RateLimit({
   windowMs: 1 * 10 * 1000, // 10 seconds
   max: 10,
@@ -23,23 +24,23 @@ const limiter = RateLimit({
 // Apply rate limiter to all requests
 app.use(limiter);
 
-// Set up mongoose connection
-const mongoose = require("mongoose");
-
-mongoose.connect(
-  "mongodb+srv://myAtlasDBUser:secreta123@myatlasclusteredu.yitubko.mongodb.net/api-mongoDB?retryWrites=true&w=majority",
-  {}
-)
-.then(() => {
-  console.log('Autenticado com o MongoDB');
-})
-.catch((error) => {
-  console.log('Falha ao autenticar');
-  console.log(error);
-});
-
-mongoose.Promise = global.Promise;
-module.exports = mongoose;
+// // Set up mongoose connection
+// const mongoose = require("mongoose");
+// // conexão  com o mongoose com os meus dados
+// mongoose.connect(
+//   "mongodb+srv://myAtlasDBUser:secreta123@myatlasclusteredu.yitubko.mongodb.net/api-mongoDB?retryWrites=true&w=majority",
+//   {}
+// )
+// .then(() => {
+//   console.log('Autenticado com o MongoDB pelo app');
+// })
+// .catch((error) => {
+//   console.log('Falha ao autenticar pelo app');
+//   console.log(error);
+// });
+// pode usar normalmente sem este dois scripts abaixo
+// mongoose.Promise = global.Promise;
+// module.exports = mongoose;
 
 
 // mongoose.set("strictQuery", false);
@@ -75,12 +76,10 @@ app.use(compression()); // Compress all routes
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
-
-app.use("/r", cad_user);
-
+app.use("/auth", cad_user);
 app.use("/users", usersRouter);
 app.use("/catalog", catalogRouter); // Add catalog routes to middleware chain.
-
+app.use("/*", indexRouter);
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));
