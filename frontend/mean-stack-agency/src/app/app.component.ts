@@ -1,3 +1,7 @@
+
+
+
+
 import { Component } from '@angular/core';
 
 @Component({
@@ -72,7 +76,6 @@ sum = ()=>{
 
   inc(){
     this.nums.push(Math.floor(Math.random()*37));
-    
   }
   dec(){
     this.nums.pop();

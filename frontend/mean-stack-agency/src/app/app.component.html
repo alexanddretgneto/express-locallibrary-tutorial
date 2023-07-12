@@ -286,7 +286,8 @@
 <div class="toolbar" role="banner">
   <img width="40" alt="Angular Logo"
     src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==" />
-  <span>ALEXANDRE NETO</span>
+    <span>INTELIGÊNCIA ARTIFICIAL - ITA </span>
+   
   <div class="spacer"></div>
   <a aria-label="Angular on twitter" target="_blank" rel="noopener" href="https://twitter.com/angular" title="Twitter">
     <svg id="twitter-logo" height="24" data-name="Logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
@@ -308,14 +309,15 @@
 
 <div class="content" role="main">
 
-  
 
-  <h1 style="{{red}}">{{ title }}</h1>
+
+  <h1 [style]="red">{{ title }}</h1>
 
 
   <h2 [style]="green">{{sum()}}</h2>
 
-<!-- <div>
+</div>
+  <!-- <div>
 
   <p>Mostra o texto escrito no input logo após clicar no botão:</p>
   <input id="inputMessage" type="text">
@@ -323,31 +325,30 @@
   <button onclick="limparTexto1()">LIMPANDO O TEXTO</button>
   <h3>{{mensagem1}}</h3>
 </div> -->
+  <div class="content" role="main">
 
-  <div>
-
-    <p>Mostra o texto escrito no imput logo após clicar no botão 
+    <p>Mostra o texto escrito no imput logo após clicar no botão
       o segundo botão limpa o H3
     </p>
     <input #inputMessage type="text">
     <button (click)="ValorInput1(inputMessage.value)">Click-Me</button>
     <button (click)="limparTexto1('')">LIMPANDO O TEXTO 1</button>
     <h3>{{mensagem1}}</h3>
-
   </div>
-   <div>
-
-   
-    <!-- Este dois scripts abaixo mostra o texto depois de clicado 
+  <!-- Este dois scripts abaixo mostra o texto depois de clicado 
       mostra o valor que foi passado no input é precisoo dos dois 
       ele,mentos abaixo para que funcione corretamente-->
-    <p>Mostra o texto escrito logo pós a escrita no input
+   
+  <div class="content" role="main">
+
+
+     <p>Mostra o texto escrito logo pós a escrita no input
       sem precisar apertar em botão nenhum</p>
     <input #inputMessage type="text" [(ngModel)]="mensagem2">
     <button (click)="limparTexto2('')">LIMPANDO O TEXTO 2</button>
     <h3>{{mensagem2}}</h3>
-w
-   
+    w
+
 
 
 
@@ -361,20 +362,12 @@ w
     <h3>{{mensagem3}}</h3>
      -->
   </div>
-
-
-
-
   <!-- ------------------------------------------------------- -->
-
-
   <!--        é nessa div que se começa a trabalhar 
 neste trecho se       trabalha o botão ocultar r 
 mostrar uma mensagem   em h3 no código abaixo -->
   <div class="content" role="main">
-    <p>FUNÇÃO PARA MOSTRAR E APAGAR DEPOIS DE APERTAR NO BOTAO</p>
-
-
+    <p>Função que eu me reconheço quando clicado no botão</p>
     <button (click)="funcaoMudar()">Verdade Secretas</button>
 
     <ng-container *ngIf="show; else showPublic">
@@ -386,16 +379,12 @@ mostrar uma mensagem   em h3 no código abaixo -->
     </ng-template>
 
   </div>
-
-
   <!-- esta div abaixo mostra um array buscado de components
 estes são as variaveis nums e nums2
 nums = [10,20]
 //usado para criar a tabela este código abaixo
 nums2 = [10,20, 25, 33, 40, 56] -->
-
-
-  <div>
+  <div class="content" role="main">
     <p>Uma simples div de HTML sem formatação de Conteiner do Angular que enumera e mostra a primeira coluna</p>
     <h1 *ngFor="let num of nums2;
                      index as i;
@@ -407,18 +396,10 @@ nums2 = [10,20, 25, 33, 40, 56] -->
 
     </h1>
   </div>
-
-
   <!-- este comando mostra apenas como criar um 
 conteiner do Angular "ng-container" e uma tabela no container com os
 dados de uma lista-->
-
-
-
-  <div>
-
-
-
+  <div class="content" role="main">
     <table>
       <p>Abaixo apenas um conteiner</p>
       <ng-container *ngFor="let num of nums2; index as i; count as total; even as even; odd as odd">
@@ -426,18 +407,14 @@ dados de uma lista-->
           <td>{{i+1}}. {{num}}</td>
         </tr>
       </ng-container>
-
     </table>
-
   </div>
   <!-- este comando mostra apenas como criar um 
 conteiner do Angular "ng-container" estilizada com duas cores usadas anteriormente
 dentro donde verdadeiro fica grenn e falso fica red-->
+  <div class="content" role="main">
 
-  
-  <div>
-  
-  
+
     <table>
       <p>Abaixo apenas um conteiner com duas cores em uma mesma coluna</p>
       <ng-container *ngFor="let num of nums2; index as i; count as total; even as even; odd as odd">
@@ -445,24 +422,21 @@ dentro donde verdadeiro fica grenn e falso fica red-->
           <td>{{i+1}}. {{num}}</td>
         </tr>
       </ng-container>
-  
+
     </table>
-    
-  
+
+
   </div>
-
-
-      <!-- este comando mostra apenas como criar um 
+  <!-- este comando mostra apenas como criar um 
 conteiner do Angular "ng-container" estilizada com duas cores usadas anteriormente
 dentro de uma tabela incrementando e decrementando-->
+  <div class="content" role="main">
 
-  <div>
-  
-  
+
     <p>Abaixo apenas um conteiner com duas cores em coluna separadas</p>
-  
+
     <table>
-  
+
       <ng-container *ngFor="let num of nums2; index as i; count as total; even as even; odd as odd">
         <tr [style]="even ? green : red" style="color:black; text-align:center;">
           <td style="width:50px">
@@ -472,26 +446,52 @@ dentro de uma tabela incrementando e decrementando-->
             {{num}}
           </td>
         </tr>
-  
+
       </ng-container>
-  
+
     </table>
-  
+
   </div>
-  <div>
-  
-  
-    <p>Abaixo apenas um conteiner com duas cores em coluna separadas e dois bot~es de incremento</p>
-  
+  <div class="content" role="main">
 
 
+    <p>Abaixo apenas um conteiner com duas cores em coluna separadas e dois botões de incremento</p>
+
+
+    <div>
       <button (click)="inc()">+</button>
       <button (click)="dec()">-</button>
-    
+    </div>
     <table>
-  
+
       <ng-container *ngFor="let num of nums; index as i; count as total; even as even; odd as odd">
         <tr [style]="even ? green : red" style="color:white; text-align:center;">
+          <td style="width:50px">
+            {{i+1}}.
+          </td>
+          <!-- <td style="width:100px">
+            {{num}}
+          </td> -->
+        </tr>
+
+      </ng-container>
+
+    </table>
+
+  </div>
+  
+  <div class="content" role="main">
+
+    <p>Abaixo apenas um conteiner com duas no background</p>
+
+    <div>
+      <button (click)="inc()">+</button>
+      <button (click)="dec()">-</button>
+    </div>
+    <table>
+
+      <ng-container *ngFor="let num of nums; index as i; count as total; even as even; odd as odd">
+        <tr [style.background-color]="even ? 'green' : 'red'" style="color:white; text-align:center;">
           <td style="width:50px">
             {{i+1}}.
           </td>
@@ -499,14 +499,13 @@ dentro de uma tabela incrementando e decrementando-->
             {{num}}
           </td>
         </tr>
-  
-      </ng-container>
-  
-    </table>
-  
-  </div>
 
-  <div>
+      </ng-container>
+
+    </table>
+
+  </div>
+  <div class="content" role="main">
     <table>
       <p>este é apenas uma lista ordenada sem comparação com nada</p>
       <ng-container *ngFor="let num of nums2; index as i; count as total; even as even; odd as odd">
@@ -535,14 +534,12 @@ dentro de uma tabela incrementando e decrementando-->
   </div>
 
 
-  <!-- 
-    
-  este conteiner mostra algum atributo da lista neste caso o even
+  <!--  este conteiner mostra algum atributo da lista neste caso o even
   o  <tr *ngIf="even"> mostrará na tabela o que vier na resposta do even
     que neste caso é verdadeiro então mostrará o que tiver na tabela que for verdd=adeiro
    -->
 
-  <div>
+  <div class="content" role="main">
     <table>
       <p>começa com verdadeiro primeiro</p>
       <ng-container *ngFor="let num of nums2; index as i; count as total; even as even; odd as odd">
@@ -575,7 +572,7 @@ dentro de uma tabela incrementando e decrementando-->
     que neste caso é falso então mostrará o que tiver na tabela que for falso primeiro
    -->
 
-    <div>
+    <div class="content" role="main">
       <table>
         <p>começa com falso primeiro</p>
         <ng-container *ngFor="let num of nums2; index as i; count as total; even as even; odd as odd">
@@ -613,13 +610,16 @@ dentro de uma tabela incrementando e decrementando-->
   duas cores diferentes -->
 
 
+  <app-about></app-about>
 
-
+  <app-login></app-login>
+  <app-registro></app-registro>
   </div>
 
-
+ 
   <div>
 
+<!-- <app-login></app-login> -->
   </div>
 
 
