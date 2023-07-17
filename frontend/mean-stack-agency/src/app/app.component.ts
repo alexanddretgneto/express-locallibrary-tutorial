@@ -16,6 +16,7 @@ export class AppComponent {
 click(arg0: string) {
 throw new Error('Method not implemented.');
 }
+
   title = 'Agência Digital - PLUGIN';
 
 
