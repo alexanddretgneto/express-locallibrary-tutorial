@@ -6,7 +6,7 @@ import { RegistroComponent } from '../registro/registro.component';
 
 
 @NgModule({
-  declarations: [LoginComponent, RegistroComponent],
+  declarations: [LoginComponent, RegistroComponent,],
   imports: [
     CommonModule
 
